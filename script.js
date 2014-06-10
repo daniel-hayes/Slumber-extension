@@ -32,14 +32,15 @@ $(document).ready(function() {
 	     
 	    $("#theTime").html("<h1>" + currentTimeString + "</h1>");
 
-	/*	var mainHours = currentTime.getHours();
+		/*var mainHours = currentTime.getHours();
 		
 		console.log(mainHours);
 		if(mainHours >= 18 || mainHours <= 6) {
 			$("body").addClass("night");
 			$("body").removeClass("day");
 		} else {
-			$("body").css("background","#FFF");			
+			$("body").addClass("day");
+			$("body").removeClass("night");
 		} */
 	}
 
@@ -244,24 +245,25 @@ load(); // load content
 		}
 		
 		$('#welcome').hide(); // hide other content
-		$('#instant').html(sleepyTime)
+		$('#instant').html(sleepyTime).animate({
+			opacity: '1'
+		}, 600);
 
+		// adjust screen
+		var allThings = $("#everything");
+		var allThingsHeight = allThings.css('height');
 
-	
-	function startIt() {
-		$('#everything').css({
-			height: "560px",
-			left: ($(window).width() - $('#everything').width())/2,
-			top: ($(window).height() - $('#everything').height())/2
-		});
-	}
-	
-	var move = setInterval(startIt, 1);
-
+		// if everything height is not 560 then animate 
+		if(allThingsHeight !== "530px") {
+			allThings.animate({
+				height: "530px",
+				left: ($(window).width() - allThings.width())/2,
+				top: ($(window).height() - 530)/2
+			}, 600);
+		}
 
 	}); // end click function 
 	
-
 
 		
 	// resize the div based on window size
