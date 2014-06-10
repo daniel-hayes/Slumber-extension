@@ -26,7 +26,7 @@ html, body {
 #everything {
 	position: absolute;
 	width: 700px;
-	height: 400px;
+	height: 320px;
 }
 
 .drop {
@@ -104,7 +104,8 @@ ul li p {
 }
 
 #instant {
-	margin-top: 50px;
+	margin-top: 30px;
+	opacity: 0;
 }
 
 #instant h1 {
