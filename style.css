@@ -1,0 +1,142 @@
+/* STYLES */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+* {
+	outline: none;
+}
+
+html, body {
+	height: 100%;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+.night {
+	background: #000;
+	color: #FFF;
+	
+}
+
+.day {
+	background: #FFF;
+	color: #000;
+}
+
+#everything {
+	position: absolute;
+	width: 700px;
+	height: 400px;
+}
+
+.drop {
+	display: inline-block;
+	position: relative;
+	width: 120px;
+	margin: 0 20px;
+	/*background: #9BB7E9; */
+	border:1px solid #000;
+	text-align: center;
+	cursor: pointer;
+}
+
+button {
+	/*background: #FFF;*/
+	background: #000;
+	color: #FFF;
+	width: 120px;
+	padding: 20px 15px;
+	border: 0;
+	cursor: pointer;
+	margin: 0 20px;
+/*	border: 1px solid black; */
+}
+
+button h3 {
+	margin: 0;
+	font-weight: 300;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.7em;
+}
+
+ul {
+	position: absolute;
+	width: 100%;
+	display: none;
+	background: #FFFFFF;
+	/*background: #DDE9FF; */
+	padding: 0;
+	margin: 0;
+	left: -1px;
+	top: 100%;
+	border: 1px solid #000000;
+	/*overflow-y: scroll; 
+	max-height:200px;	*/
+}
+
+ul li {
+	list-style: none;
+	cursor: pointer;
+	width: 50%;
+	display: inline-block;
+}
+
+ul li:hover {
+	background: #F0F0F0;
+}
+
+ul li p {
+	margin: 0;
+	padding: 5px 0;
+}
+
+.show {
+	display: block;
+
+}
+
+#sleep, #instant{
+	margin: 0 auto;
+}
+
+#sleep {
+	width: 658px;
+}
+
+#instant {
+	margin-top: 50px;
+}
+
+#instant h1 {
+	display: inline-block;
+	margin: 10px 0;
+	font-size: 3.5em;
+	width: 50%;
+	text-align: center;
+}
+
+#theTime {
+	margin: 0 auto;
+	font-size: 4em;
+	text-align: center;
+}
+
+#theTime h1 {
+	font-weight: 300;
+	margin: 0;
+}
+
+.wake {
+	text-align: center;
+}
+
+.drop:active {
+	box-shadow:inset 0px 2px 8px #D3D3D3;
+}
+
+.box {
+	box-shadow: inset 0px 2px 3px #D3D3D3;
+}
+
+
+

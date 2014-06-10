@@ -1,0 +1,279 @@
+$(document).ready(function() {
+
+
+	$('#everything').css({
+		left: ($(window).width() - $('#everything').width())/2,
+		top: ($(window).height() - $('#everything').height())/2
+	});
+	
+	
+	function updateClock() {
+	    var currentTime = new Date();
+	    var currentHours = currentTime.getHours();
+	    var currentMinutes = currentTime.getMinutes();
+	    var currentSeconds = currentTime.getSeconds();
+	 
+	    // Pad the minutes and seconds with leading zeros, if required
+	    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+	    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+	 
+	    // Choose either "AM" or "PM" as appropriate
+	    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+	 
+	    // Convert the hours component to 12-hour format if needed
+	    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+	 
+	    // Convert an hours component of "0" to "12"
+	    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+	 
+	    // Compose the string for display
+	    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+	     
+	     
+	    $("#theTime").html("<h1>" + currentTimeString + "</h1>");
+
+	/*	var mainHours = currentTime.getHours();
+		
+		console.log(mainHours);
+		if(mainHours >= 18 || mainHours <= 6) {
+			$("body").addClass("night");
+			$("body").removeClass("day");
+		} else {
+			$("body").css("background","#FFF");			
+		} */
+	}
+
+
+ 	updateClock(); // display clock
+ 	setInterval(updateClock, 1000); // change time
+
+
+
+	function load() {
+
+	    var inputTime = $("#welcome").html("<h2>Sleep Time app</h2>");
+
+	    // input for hours
+	    var input = "",
+	    	hours = "";
+
+
+	    input = input + "<div class='drop'><h3 id='hour' data-time='Hours'>Hours</h3><ul>";
+
+		   	for(var hour = 1; hour <= 12; hour++) {
+		    	input = input + "<li data-time='" + hour + "'>" + "<p>" + hour + "</p>" + "</li>";
+		    }
+
+	    input = input + "</ul></div>";
+
+
+	    // input for minutes
+	    var inputTwo = "",
+	    	minutes = "";
+
+	    inputTwo = inputTwo + "<div class='drop'><h3 id='minute' data-time='Minutes'>Minutes</h3><ul>";
+	   	
+		   	for(var minute = 0; minute <= 55; minute += 5) {
+		    	if (minute < 10) {
+		    		inputTwo = inputTwo + "<li data-time='" + minute + "'>" + "<p>" + "0" + minute + "</p>" + "</li>"
+		    	} else {
+					inputTwo = inputTwo + "<li data-time='" + minute + "'>" + "<p>" + minute + "</p>" + "</li>";
+		    	}
+		    }	    					  
+
+		inputTwo = inputTwo + "</ul></div>";
+
+		// AM or PM 
+	    var inputThree = "<div class='drop'><h3 id='time' data-time='AM or PM'>AM or PM</h3><ul>" +
+	    				 "<li data-time='AM'><p>AM</p></li>" + "<li data-time='PM'><p>PM</p></li>" +
+	    				 "</ul></div>";
+
+
+	    var inputFour = "<button><h3>Calculate</h3></button>";
+
+		
+		var allInputs = input + "<h4 style='display:inline-block; font-size: 2em;'>:</h4>" + inputTwo + inputThree + inputFour;
+
+		$("#sleep").html(allInputs);
+	}
+
+load(); // load content
+
+
+	$(".drop").click(function () {
+		$(this).find("ul").toggleClass("show");
+		if($(this).find("ul").hasClass("show")) {
+			$(this).addClass("box");
+		} else {
+			$(this).removeClass("box");
+		}
+
+	});
+
+	$("li").click(function () {
+		var dataTime = $(this).attr("data-time");
+			$(this).parent("ul").siblings("h3").attr("data-time", dataTime);
+			$(this).parent("ul").siblings("h3").html(dataTime);
+				
+
+
+			/*
+				if($("#minute").attr("data-time") < 10) {
+					$(this).parent("ul").siblings("h3").html("0" + dataTime);
+				} else {
+					$(this).parent("ul").siblings("h3").html(dataTime);
+				}
+*/
+			/* fix this !!!!
+
+			if(dataTime == $("h3").attr("data-time"))  {
+				$(this).css("background", "blue");
+				console.log(dataTime);
+			} else {
+				$(this).css("background", "red");
+			}
+			*/
+	});
+	
+
+	function sleep(hr, min, day) {
+                var rmin = 0;
+                var rhr = 0;
+                var a = day;
+                if(min < 30) {
+                        rmin = (min * 1) + (30 * 1);
+                        rhr = hr - 2;
+                }
+                else if(min >= 30) {
+                        rmin = min - 30;
+                        rhr = hr - 1;
+                }
+                if(rhr < 1) {
+                        rhr = 12 + rhr;
+                        
+			if(a == "AM") {
+				a = "PM";
+			}
+			else {
+				a = "AM";
+			}
+			
+                }
+                
+		var r = [rhr, rmin, a];
+		return r;
+	}
+
+	$("#sleep button").click(function () {
+		if ($(".drop ul").hasClass("show")) {
+			$(".show").removeClass();
+		}
+
+		if($("#hour").attr("data-time") == 'Hours' || $("#minute").attr("data-time") == 'Minutes' || $("#time").attr("data-time") == 'AM or PM' ) {
+			return false;
+		} 
+		
+		var ampm = $("#time").attr("data-time");	
+		var hr = $("#hour").attr("data-time");
+		var min = $("#minute").attr("data-time");
+		var orig = [hr, min, ampm];
+		
+		if(hr == 12) {
+			if(ampm == "AM") {
+				ampm = "PM";
+			}
+			else {
+				ampm = "AM";
+			}
+		}
+		
+		var times = new Array();
+
+		for(var c = 1; c <= 10; c++) {
+
+			var back = sleep(hr, min, ampm);
+			var nhr = back[0];
+			var nmin = back[1];
+			ampm = back[2];
+			var ampmt = "";
+			ampmt = back[2];
+			
+			if(nhr == 12) {
+				if(ampm == "AM") {
+					ampmt = "PM";
+				}
+				else {
+					ampmt = "AM";
+				}
+			}
+
+			if(c == 6 || c == 4 || c == 5 || c == 3) {
+				var temp = '';
+				if(nmin > 9) {
+					if(c == 6) {
+
+
+						temp = '<h1>' + nhr + ':' + nmin + ' ' + ampmt + '</h1>';
+						times.push(temp);
+					}
+					else {
+						temp = '<h1>' + nhr + ':' + nmin + ' ' + ampmt + '</h1>';
+						times.push(temp);
+					}
+				}
+				else { // insert 0
+					if(c == 6) {
+						temp = '<h1>' + nhr + ':0' + nmin + ' ' + ampmt + '</h1>';
+						times.push(temp);
+					}
+					else {
+						temp = '<h1>' + nhr + ':0' + nmin + ' ' + ampmt + '</h1>';
+						times.push(temp);
+					}
+				
+				}
+			}
+			hr = nhr;
+			min = nmin;
+		}
+		
+		var sleepyTime = "";
+
+		for(i = 3; i >= 0; i--) {
+			sleepyTime = sleepyTime + times[i];
+		}
+		
+		$('#welcome').hide(); // hide other content
+		$('#instant').html(sleepyTime)
+
+
+	
+	function startIt() {
+		$('#everything').css({
+			height: "560px",
+			left: ($(window).width() - $('#everything').width())/2,
+			top: ($(window).height() - $('#everything').height())/2
+		});
+	}
+	
+	var move = setInterval(startIt, 1);
+
+
+	}); // end click function 
+	
+
+
+		
+	// resize the div based on window size
+	$(window).resize(function(){
+		$('#everything').css({
+			left: ($(window).width() - $('#everything').width())/2,
+			top: ($(window).height() - $('#everything').height())/2
+		});
+	});
+	
+	
+
+
+}); // end document ready
+
