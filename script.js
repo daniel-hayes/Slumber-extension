@@ -214,21 +214,21 @@ load(); // load content
 					if(c == 6) {
 
 
-						temp = '<h1>' + nhr + ':' + nmin + ' ' + ampmt + '</h1>';
+						temp = '<h1>' + nhr + ':' + nmin + '<small>' + ampmt + '</small></h1>';
 						times.push(temp);
 					}
 					else {
-						temp = '<h1>' + nhr + ':' + nmin + ' ' + ampmt + '</h1>';
+						temp = '<h1>' + nhr + ':' + nmin + '<small>' + ampmt + '</small></h1>';
 						times.push(temp);
 					}
 				}
 				else { // insert 0
 					if(c == 6) {
-						temp = '<h1>' + nhr + ':0' + nmin + ' ' + ampmt + '</h1>';
+						temp = '<h1>' + nhr + ':0' + nmin + '<small>' + ampmt + '</small></h1>';
 						times.push(temp);
 					}
 					else {
-						temp = '<h1>' + nhr + ':0' + nmin + ' ' + ampmt + '</h1>';
+						temp = '<h1>' + nhr + ':0' + nmin + '<small>' + ampmt + '</small></h1>';
 						times.push(temp);
 					}
 				
@@ -249,16 +249,18 @@ load(); // load content
 			opacity: '1'
 		}, 600);
 
+		console.log(sleepyTime);
+
 		// adjust screen
 		var allThings = $("#everything");
 		var allThingsHeight = allThings.css('height');
 
 		// if everything height is not 560 then animate 
-		if(allThingsHeight !== "530px") {
+		if(allThingsHeight !== "560px") {
 			allThings.animate({
-				height: "530px",
+				height: "560px",
 				left: ($(window).width() - allThings.width())/2,
-				top: ($(window).height() - 530)/2
+				top: ($(window).height() - 560)/2
 			}, 600);
 		}
 
