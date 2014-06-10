@@ -1,6 +1,6 @@
 /* STYLES */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,300italic);
 
 * {
 	outline: none;
@@ -10,23 +10,24 @@ html, body {
 	height: 100%;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
+	color: #454545;
 }
 
 .night {
-	background: #000;
+	background: #454545;
 	color: #FFF;
 	
 }
 
 .day {
 	background: #FFF;
-	color: #000;
+	color: #454545;
 }
 
 #everything {
 	position: absolute;
-	width: 700px;
-	height: 320px;
+	width: 950px;
+	height: 380px;
 }
 
 .drop {
@@ -34,22 +35,33 @@ html, body {
 	position: relative;
 	width: 120px;
 	margin: 0 20px;
-	/*background: #9BB7E9; */
-	border:1px solid #000;
+	border:1px solid #454545;
 	text-align: center;
 	cursor: pointer;
+
 }
 
 button {
-	/*background: #FFF;*/
-	background: #000;
+	background: #454545;
 	color: #FFF;
 	width: 120px;
-	padding: 20px 15px;
+	position: relative;
+	padding: 16px 15px;
 	border: 0;
 	cursor: pointer;
 	margin: 0 20px;
-/*	border: 1px solid black; */
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  	background: #454545;
+  	border-bottom: 2px solid #2f2e2e;
+  	-webkit-box-shadow: inset 0 -2px #2f2e2e;
+  	box-shadow: inset 0 -2px #2f2e2e;
+}
+
+button:active {
+	  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 button h3 {
@@ -69,7 +81,7 @@ ul {
 	margin: 0;
 	left: -1px;
 	top: 100%;
-	border: 1px solid #000000;
+	border: 1px solid #454545;
 	/*overflow-y: scroll; 
 	max-height:200px;	*/
 }
@@ -104,21 +116,47 @@ ul li p {
 }
 
 #instant {
-	margin-top: 30px;
+	margin-top: 25px;
 	opacity: 0;
 }
 
 #instant h1 {
 	display: inline-block;
-	margin: 10px 0;
+	margin: 20px 0;
 	font-size: 3.5em;
-	width: 50%;
+	width: 25%;
 	text-align: center;
+	font-weight: 400;
+}
+
+#instant h1:nth-child(1) {
+	/*color: #18D236;*/
+	color: #47A447;
+}
+
+#instant h1:nth-child(2) {
+	/*color: #ADD236; */
+	color: #95B34B;
+}
+
+#instant h1:nth-child(3) {
+/*	color: #F29305; */
+	color: #ED9C28;
+
+}
+
+#instant h1:nth-child(4) {
+	/*color: #F20505; */
+	color: #d9534f;
+}
+
+small {
+	font-size: 36px;
 }
 
 #theTime {
 	margin: 0 auto;
-	font-size: 4em;
+	font-size: 5.5em;
 	text-align: center;
 }
 
@@ -129,6 +167,13 @@ ul li p {
 
 .wake {
 	text-align: center;
+}
+
+.wake h3 {
+	margin: 30px 0px 15px 0px;
+	font-style: italic;
+	font-weight: 300;
+
 }
 
 .drop:active {
