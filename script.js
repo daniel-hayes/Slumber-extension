@@ -51,9 +51,6 @@ $(document).ready(function() {
 
 
 	function load() {
-
-	    var inputTime = $("#welcome").html("<h2>Sleep Time app</h2>");
-
 	    // input for hours
 	    var input = "",
 	    	hours = "";
@@ -100,7 +97,7 @@ $(document).ready(function() {
 
 load(); // load content
 
-
+	// show dropdown list
 	$(".drop").click(function () {
 		$(this).find("ul").toggleClass("show");
 		if($(this).find("ul").hasClass("show")) {
@@ -111,20 +108,22 @@ load(); // load content
 
 	});
 
+	// set value for data-time
 	$("li").click(function () {
 		var dataTime = $(this).attr("data-time");
 			$(this).parent("ul").siblings("h3").attr("data-time", dataTime);
 			$(this).parent("ul").siblings("h3").html(dataTime);
-				
+		
+	// add zero to minutes input
+	if($("#minute").attr("data-time") < 10) {
+		if($('#minute').attr("data-time") == 0) {
+			$("#minute").html("00");
+		}
+		else if($("#minute").attr("data-time") == 5) {
+			$("#minute").html("05");
+		}
+	}
 
-
-			/*
-				if($("#minute").attr("data-time") < 10) {
-					$(this).parent("ul").siblings("h3").html("0" + dataTime);
-				} else {
-					$(this).parent("ul").siblings("h3").html(dataTime);
-				}
-*/
 			/* fix this !!!!
 
 			if(dataTime == $("h3").attr("data-time"))  {
@@ -244,7 +243,6 @@ load(); // load content
 			sleepyTime = sleepyTime + times[i];
 		}
 		
-		$('#welcome').hide(); // hide other content
 		$('#instant').html(sleepyTime).animate({
 			opacity: '1'
 		}, 600);
