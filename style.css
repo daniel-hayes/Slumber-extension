@@ -58,10 +58,10 @@ button {
 }
 
 button:active {
-	  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+	top: 1px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 button h3 {
