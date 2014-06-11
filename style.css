@@ -84,6 +84,7 @@ ul {
 	border: 1px solid #454545;
 	/*overflow-y: scroll; 
 	max-height:200px;	*/
+	z-index: 99;
 }
 
 ul li {
@@ -100,6 +101,10 @@ ul li:hover {
 ul li p {
 	margin: 0;
 	padding: 5px 0;
+}
+
+.timeofday li {
+	width: 100%;
 }
 
 .show {

@@ -82,7 +82,7 @@ $(document).ready(function() {
 		inputTwo = inputTwo + "</ul></div>";
 
 		// AM or PM 
-	    var inputThree = "<div class='drop'><h3 id='time' data-time='AM or PM'>AM or PM</h3><ul>" +
+	    var inputThree = "<div class='drop'><h3 id='time' data-time='AM or PM'>AM or PM</h3><ul class='timeofday'>" +
 	    				 "<li data-time='AM'><p>AM</p></li>" + "<li data-time='PM'><p>PM</p></li>" +
 	    				 "</ul></div>";
 
