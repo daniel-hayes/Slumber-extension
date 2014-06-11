@@ -152,9 +152,10 @@ small {
 }
 
 #low-top, #low-bottom {
-	font-style: normal;
+	font-style: normal !important;
 	text-transform: uppercase;
-	font-size: 18px;	
+	font-size: 18px;
+	display: none;	/* WHAT TO DO */
 }
 
 #low-top {
@@ -241,3 +242,54 @@ small {
 	font-weight: 400;
 }
 
+
+@media only screen and (max-width : 955px) {
+	
+	#everything {
+		width: 670px;
+	}
+
+	#theTime {
+		font-size: 4.5em;
+	}
+
+	#instant h1 {
+		width: 50%;
+	}
+
+	#instant h1 .pop {
+		top: 70px;
+	}
+
+}
+
+
+@media only screen and (max-width : 675px) {
+
+	#everything {
+		width: 320px;
+	}
+
+	#theTime {
+		font-size: 2.4em;
+	}
+
+	#sleep {
+		width: 100%;
+	}
+
+	.drop {
+		width: 112px;
+	}
+
+	button {
+		width: 112px;
+		padding: 16px 0px;
+		margin: 0 0 0 30px;
+	}
+
+	#instant h1 {
+		width: 100%;
+	}
+
+}
