@@ -6,9 +6,9 @@ $(document).ready(function() {
 		top: ($(window).height() - $('#everything').height())/2
 	});
 	
-	
+		var currentTime = new Date();
+
 	function updateClock() {
-	    var currentTime = new Date();
 	    var currentHours = currentTime.getHours();
 	    var currentMinutes = currentTime.getMinutes();
 	    var currentSeconds = currentTime.getSeconds();
@@ -48,7 +48,13 @@ $(document).ready(function() {
  	updateClock(); // display clock
  	setInterval(updateClock, 1000); // change time
 
+ 	// Get tomorrow's day!
+	var theDay = currentTime.getDay();
+	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+	var tomorrow = weekday[theDay + 1];
+
+	$(".wake").html("<h3>wake time for tomorrow (" + tomorrow + "):</h3>" );
 
 	function load() {
 	    // input for hours
@@ -82,7 +88,7 @@ $(document).ready(function() {
 		inputTwo = inputTwo + "</ul></div>";
 
 		// AM or PM 
-	    var inputThree = "<div class='drop'><h3 id='time' data-time='AM or PM'>AM or PM</h3><ul class='timeofday'>" +
+	    var inputThree = "<div class='drop'><h3 id='time' data-time='AM or PM'>AM or PM</h3><ul id='timeofday'>" +
 	    				 "<li data-time='AM'><p>AM</p></li>" + "<li data-time='PM'><p>PM</p></li>" +
 	    				 "</ul></div>";
 
