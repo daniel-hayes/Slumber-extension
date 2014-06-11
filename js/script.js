@@ -270,13 +270,22 @@ load(); // load content
 
 		// if everything height is not 560 then animate 
 		if(allThingsHeight !== "560px") {
-			allThings.animate({
-				height: "560px",
-				left: ($(window).width() - allThings.width())/2,
-				top: ($(window).height() - 560)/2
-			}, 600);
+			if($(window).width() < 500) {
+				allThings.animate({
+					height: "450px",
+					left: ($(window).width() - allThings.width())/2,
+					top: ($(window).height() - 300)/2
+				}, 600);
+			} else {
+				allThings.animate({
+					height: "560px",
+					left: ($(window).width() - allThings.width())/2,
+					top: ($(window).height() - 560)/2
+				}, 600);
+			}
 		}
 
+		console.log($(window).width());
 	}); // end click function 
 	
 
