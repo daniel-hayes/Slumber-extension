@@ -6,6 +6,7 @@ $(document).ready(function() {
 		top: ($(window).height() - $('#everything').height())/2
 	});
 	
+		// create the date object
 		var currentTime = new Date();
 
 	function updateClock() {
@@ -48,14 +49,15 @@ $(document).ready(function() {
  	updateClock(); // display clock
  	setInterval(updateClock, 1000); // change time
 
+
  	// Get tomorrow's day!
 	var theDay = currentTime.getDay();
 	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 	var tomorrow = weekday[theDay + 1];
-
+	// display tomorrow's date
 	$(".wake").html("<h3>wake time for tomorrow (" + tomorrow + "):</h3>" );
 
+	
 	function load() {
 	    // input for hours
 	    var input = "",
@@ -253,7 +255,10 @@ load(); // load content
 			opacity: '1'
 		}, 600);
 
-		console.log(sleepyTime);
+		$("#instant h1:nth-child(1)").append("<span class='pop'>9 hours of sleep</span>");
+		$("#instant h1:nth-child(2)").append("<span class='pop'>7.5 hours of sleep</span>");
+		$("#instant h1:nth-child(3)").append("<span class='pop'>6 hours of sleep</span>");
+		$("#instant h1:nth-child(4)").append("<span class='pop'>4.5 hours of sleep</span>");
 
 		// adjust screen
 		var allThings = $("#everything");
