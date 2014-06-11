@@ -10,6 +10,7 @@ $(document).ready(function() {
 		var currentTime = new Date();
 
 	function updateClock() {
+		var currentTime = new Date();
 	    var currentHours = currentTime.getHours();
 	    var currentMinutes = currentTime.getMinutes();
 	    var currentSeconds = currentTime.getSeconds();
@@ -53,9 +54,10 @@ $(document).ready(function() {
  	// Get tomorrow's day!
 	var theDay = currentTime.getDay();
 	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var today = weekday[theDay];
 	var tomorrow = weekday[theDay + 1];
 	// display tomorrow's date
-	$(".wake").html("<h3>wake time for tomorrow (" + tomorrow + "):</h3>" );
+	$(".wake").html("<h3>wake time for tomorrow :</h3><h3 id='low-top'>"  + tomorrow + "</h3>" );
 
 	
 	function load() {
@@ -245,15 +247,17 @@ load(); // load content
 			min = nmin;
 		}
 		
+		$('#sleeptimes').html("<h3>sleep times for tonight:</h3><h3 id='low-bottom'>"+ today + "</h3>" );
+
 		var sleepyTime = "";
 
 		for(i = 3; i >= 0; i--) {
 			sleepyTime = sleepyTime + times[i];
 		}
-		
+
 		$('#instant').html(sleepyTime).animate({
 			opacity: '1'
-		}, 600);
+		}, 1100);
 
 		$("#instant h1:nth-child(1)").append("<span class='pop'>9 hours of sleep</span>");
 		$("#instant h1:nth-child(2)").append("<span class='pop'>7.5 hours of sleep</span>");
