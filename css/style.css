@@ -88,11 +88,16 @@ ul li {
 	list-style: none;
 	cursor: pointer;
 	width: 50%;
+	font-weight: 400;
 	display: inline-block;
 }
 
 ul li:hover {
-	background: #F3F3F3;
+	background: #454545;
+    transition: background-color 100ms linear, color 75ms linear;
+    -webkit-transition: background-color 100ms linear, color 75ms linear;
+	color: #fff;
+	font-weight: 300;
 }
 
 ul li p {
@@ -239,7 +244,7 @@ small {
 }
 
 .pop {
-	font-weight: 400;
+	font-weight: 300;
 }
 
 
