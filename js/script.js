@@ -134,7 +134,7 @@ load(); // load content
 		}
 	}
 
-			/* fix this !!!!
+			/* fix
 
 			if(dataTime == $("h3").attr("data-time"))  {
 				$(this).css("background", "blue");
@@ -284,8 +284,6 @@ load(); // load content
 				}, 600);
 			}
 		}
-
-		console.log($(window).width());
 	}); // end click function 
 	
 
