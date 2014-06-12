@@ -97,7 +97,6 @@ ul li:hover {
     transition: background-color 100ms linear, color 75ms linear;
     -webkit-transition: background-color 100ms linear, color 75ms linear;
 	color: #fff;
-	font-weight: 300;
 }
 
 ul li p {
