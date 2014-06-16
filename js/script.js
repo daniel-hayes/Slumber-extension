@@ -55,9 +55,8 @@ $(document).ready(function() {
 	var theDay = currentTime.getDay();
 	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var today = weekday[theDay];
-	var tomorrow = weekday[theDay + 1];
 	// display tomorrow's date
-	$(".wake").html("<h3>wake time for tomorrow :</h3><h3 id='low-top'>"  + tomorrow + "</h3>" );
+	$(".wake").html("<h3>wake time for tomorrow :</h3>" );
 
 	
 	function load() {
@@ -247,7 +246,7 @@ load(); // load content
 			min = nmin;
 		}
 		
-		$('#sleeptimes').html("<h3>sleep times for tonight:</h3><h3 id='low-bottom'>"+ today + "</h3>" );
+		$('#sleeptimes').html("<h3>sleep times for tonight:</h3>" );
 
 		var sleepyTime = "";
 

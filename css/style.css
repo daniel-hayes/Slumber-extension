@@ -246,6 +246,24 @@ small {
 	font-weight: 300;
 }
 
+.set-days {
+	width:75%;
+	margin: 0 auto;
+}
+
+.new-day {
+	width: 100%;
+	height: 40px;
+}
+
+.new-day p {
+	display: inline-block;
+	width:110px;
+}
+
+.options {
+	display: inline-block;
+}
 
 @media only screen and (max-width : 955px) {
 	
