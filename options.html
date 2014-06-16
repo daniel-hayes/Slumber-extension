@@ -12,7 +12,7 @@
 	<section>
 	<p>Set weekly times:</p>
 		
-<h3 id="today">Today is </h3>
+<h3 id="today"></h3>
 
 <p>weekly wake up times</p>
 
@@ -20,15 +20,23 @@
 		<div class="new-day">
 			<p>Sunday</p>
 				<div class="options">
-					<select>
-						<option>Hour</option>
+					<select id="optionsHour">
+						<option value="hour">Hour</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+
 					</select>
-					<select>
-						<option>Minute</option>
+					<select id="optionsMin">
+						<option value="minute">Minute</option>
+						<option value="0">00</option>
+						<option value="5">05</option>
+						<option value="10">10</option>
+
 					</select>
-					<select>
-						<option>AM</option>
-						<option>PM</option>
+					<select id="optionsTime">
+						<option value="am">AM</option>
+						<option value="pm">PM</option>
 					</select>
 				</div> <!-- options -->
 		</div>
@@ -131,6 +139,27 @@
 	</div> <!-- set days -->
 		
 	<h5>contact</h5>
+
+	<div id="status"></div>
+
+	<button id="save">Save</button>
+
+
+<!--
+    <select id="color">
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+
+	<input type="checkbox" id="like"></input>
+
+	<div id="status"></div>
+
+	<button id="save">Save</button>
+-->
+
 
 	</section>
 

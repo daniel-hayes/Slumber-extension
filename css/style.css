@@ -36,7 +36,6 @@ html, body {
 	width: 120px;
 	margin: 0 20px;
 	border:1px solid #7C7C7C;
-	/*border:1px solid #454545; */
 	text-align: center;
 	cursor: pointer;
 
@@ -109,8 +108,8 @@ ul li p {
 }
 
 .show {
-	display: block;
-
+  display: block;
+  opacity: 0.5;
 }
 
 #sleep, #instant{

@@ -107,13 +107,20 @@ $(document).ready(function() {
 load(); // load content
 
 	// show dropdown list
-	$(".drop").click(function () {
+	$(".drop").click(function() {
 		$(this).find("ul").toggleClass("show");
 		if($(this).find("ul").hasClass("show")) {
 			$(this).addClass("box");
+			$(".show").animate({
+				opacity: 1
+			});
 		} else {
 			$(this).removeClass("box");
+			$(this).find("ul").css("opacity", 0);
 		}
+		/* 
+		FIX THIS FOR ANIMATING BAR
+		*/
 
 	});
 
@@ -180,7 +187,7 @@ load(); // load content
 
 		if($("#hour").attr("data-time") == 'Hours' || $("#minute").attr("data-time") == 'Minutes' || $("#time").attr("data-time") == 'AM or PM' ) {
 			return false;
-		} 
+		}
 		
 		var ampm = $("#time").attr("data-time");	
 		var hr = $("#hour").attr("data-time");
@@ -283,6 +290,7 @@ load(); // load content
 				}, 600);
 			}
 		}
+
 	}); // end click function 
 	
 
