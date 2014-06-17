@@ -55,9 +55,8 @@ $(document).ready(function() {
 	var theDay = currentTime.getDay();
 	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var today = weekday[theDay];
-	var tomorrow = weekday[theDay + 1];
 	// display tomorrow's date
-	$(".wake").html("<h3>wake time for tomorrow :</h3><h3 id='low-top'>"  + tomorrow + "</h3>" );
+	$(".wake").html("<h3>wake time for tomorrow :</h3>" );
 
 	
 	function load() {
@@ -108,13 +107,20 @@ $(document).ready(function() {
 load(); // load content
 
 	// show dropdown list
-	$(".drop").click(function () {
+	$(".drop").click(function() {
 		$(this).find("ul").toggleClass("show");
 		if($(this).find("ul").hasClass("show")) {
 			$(this).addClass("box");
+			$(".show").animate({
+				opacity: 1
+			});
 		} else {
 			$(this).removeClass("box");
+			$(this).find("ul").css("opacity", 0);
 		}
+		/* 
+		FIX THIS FOR ANIMATING BAR
+		*/
 
 	});
 
@@ -134,7 +140,7 @@ load(); // load content
 		}
 	}
 
-			/* fix this !!!!
+			/* fix
 
 			if(dataTime == $("h3").attr("data-time"))  {
 				$(this).css("background", "blue");
@@ -181,7 +187,7 @@ load(); // load content
 
 		if($("#hour").attr("data-time") == 'Hours' || $("#minute").attr("data-time") == 'Minutes' || $("#time").attr("data-time") == 'AM or PM' ) {
 			return false;
-		} 
+		}
 		
 		var ampm = $("#time").attr("data-time");	
 		var hr = $("#hour").attr("data-time");
@@ -247,7 +253,7 @@ load(); // load content
 			min = nmin;
 		}
 		
-		$('#sleeptimes').html("<h3>sleep times for tonight:</h3><h3 id='low-bottom'>"+ today + "</h3>" );
+		$('#sleeptimes').html("<h3>sleep times for tonight:</h3>" );
 
 		var sleepyTime = "";
 
@@ -285,7 +291,6 @@ load(); // load content
 			}
 		}
 
-		console.log($(window).width());
 	}); // end click function 
 	
 
