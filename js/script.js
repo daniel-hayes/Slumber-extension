@@ -112,7 +112,7 @@ load(); // load content
 		if($(this).find("ul").hasClass("show")) {
 			$(this).addClass("box");
 			$(".show").animate({
-				opacity: 1
+				opacity: 1,
 			});
 		} else {
 			$(this).removeClass("box");
@@ -120,6 +120,7 @@ load(); // load content
 		}
 		/* 
 		FIX THIS FOR ANIMATING BAR
+		maybe make if else statement?
 		*/
 
 	});
