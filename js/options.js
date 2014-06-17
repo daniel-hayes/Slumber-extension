@@ -173,5 +173,3 @@ restore_options();
 $('#save').on('click', save_options) // call save options
 */
 });
-
-

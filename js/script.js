@@ -113,15 +113,15 @@ load(); // load content
 			$(this).addClass("box");
 			$(".show").animate({
 				opacity: 1,
-			});
+				top: "100%"
+			}, 150);
 		} else {
 			$(this).removeClass("box");
-			$(this).find("ul").css("opacity", 0);
+			$(this).find("ul").css({
+				opacity: 0,
+				top: "80%"
+			});
 		}
-		/* 
-		FIX THIS FOR ANIMATING BAR
-		maybe make if else statement?
-		*/
 
 	});
 
@@ -266,6 +266,8 @@ load(); // load content
 			opacity: '1'
 		}, 1100);
 
+		$('#save').html("<button>save</button>");
+
 		$("#instant h1:nth-child(1)").append("<span class='pop'>9 hours of sleep</span>");
 		$("#instant h1:nth-child(2)").append("<span class='pop'>7.5 hours of sleep</span>");
 		$("#instant h1:nth-child(3)").append("<span class='pop'>6 hours of sleep</span>");
@@ -276,18 +278,18 @@ load(); // load content
 		var allThingsHeight = allThings.css('height');
 
 		// if everything height is not 560 then animate 
-		if(allThingsHeight !== "560px") {
+		if(allThingsHeight !== "600px") {
 			if($(window).width() < 500) {
 				allThings.animate({
-					height: "450px",
+					height: "500px",
 					left: ($(window).width() - allThings.width())/2,
 					top: ($(window).height() - 300)/2
 				}, 600);
 			} else {
 				allThings.animate({
-					height: "560px",
+					height: "600px",
 					left: ($(window).width() - allThings.width())/2,
-					top: ($(window).height() - 560)/2
+					top: ($(window).height() - 600)/2
 				}, 600);
 			}
 		}
