@@ -349,16 +349,20 @@ load(); // load content
 		}
 	}
 	*/
-	
+
+			var hour = $('#hour').attr("data-time");
+	  	var min = $('#minute').attr("data-time");
+		var timeOfDay = $('#time').attr("data-time");
+		console.log(hour);
+		console.log(min);
+		console.log(timeOfDay); 
 
 	// Saves options
 	function save_options() {
-		if($(".options").siblings("p").html() == "Monday") {
-			$("#optionsHour").html("<option value='hi'>hi</option>");
-		}
-		var hour = $('#optionsHour').val();
-	  	var min = $('#optionsMin').val();
-		var timeOfDay = $('#optionsTime').val(); 
+
+		var hour = $('#hour').attr("data-time");
+	  	var min = $('#minute').attr("data-time");
+		var timeOfDay = $('#time').attr("data-time"); 
 		console.log(hour);
 		console.log(min);
 		console.log(timeOfDay); 
@@ -376,21 +380,34 @@ load(); // load content
 	 		}); // end status update
 	} // save options
 
-	function restore_optionss() {
+	function restore_options() {
+  		console.log(hour);		
 	  	chrome.storage.sync.get({
-	  		// list of default object values
-	    	setHour: "hour",
-	    	setMin: "minute",
-	    	setTime: "am"
-	  }, function(items) {
-	    	document.getElementById('optionsHour').value = items.setHour;
-	    	document.getElementById('optionsMin').value = items.setMin;
-	    	document.getElementById('optionsTime').value = items.setTime;
-	    	console.log(items);
-	  });
+	  		setHour: "SHIT"
+	  	}, function(items) {
+	  		$("#hour").attr("data-time") = items;
+	  		$("#minute").attr("data-time", 4).html("hi");
+	  		$("#time").attr("data-time", 4).html("hi");
+	  	});
 	}
 
-	restore_optionss(); // call restore
+/*
+
+console.log(hour);		
+	  	chrome.storage.sync.get({
+  			// list of default object values
+    		setHour: "Hours",
+    		setMin: "Minutes",
+    		setTime: "AM or PM"
+  		}, function(items) {
+    		document.getElementById('hour').value = items.;
+    		document.getElementById('minute').value = items.setMin;
+    		document.getElementById('time').value = items.setTime;
+    	console.log(items);
+ 	 });
+*/
+
+	restore_options(); // call restore
 
 	$('#save').on('click', save_options); // call save options
 
