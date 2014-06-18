@@ -254,6 +254,8 @@ small {
 /* footer */
 
 footer {
+	display: none;
+	opacity: 0;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -322,8 +324,17 @@ footer {
 	width: 31px;
 }
 
+#save:active {
+	bottom: 22px;
+
+}
+
 #reset img {
 	width: 24px;
+	  -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
 }
 
 #save img:hover, #reset img:hover {
@@ -331,7 +342,6 @@ footer {
   	-webkit-transition: opacity 0.3s ease-in-out;
   	transition: opacity 0.3s ease-in-out;
 }
-
 
 
 /* options page */

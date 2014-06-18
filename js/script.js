@@ -266,12 +266,14 @@ load(); // load content
 			opacity: '1'
 		}, 1100);
 
-		$('#save').html("<button>save</button>");
-
 		$("#instant h1:nth-child(1)").append("<span class='pop'>9 hours of sleep</span>");
 		$("#instant h1:nth-child(2)").append("<span class='pop'>7.5 hours of sleep</span>");
 		$("#instant h1:nth-child(3)").append("<span class='pop'>6 hours of sleep</span>");
 		$("#instant h1:nth-child(4)").append("<span class='pop'>4.5 hours of sleep</span>");
+
+		$('footer').show().animate({
+			opacity: "1"
+		}, 600);
 
 		// adjust screen
 		var allThings = $("#everything");
@@ -296,7 +298,11 @@ load(); // load content
 
 	}); // end click function 
 	
-
+	/*$('#reset').click(function() {
+        $('.animate .front').removeClass('front');
+        $(this).find("img").addClass('front');
+	});
+	*/	
 		
 	// resize the div based on window size
 	$(window).resize(function(){
