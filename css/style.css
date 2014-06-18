@@ -28,6 +28,7 @@ html, body {
 	position: absolute;
 	width: 950px;
 	height: 380px;
+	display: none;
 }
 
 .drop {
@@ -302,6 +303,7 @@ footer {
 
 #save, #reset {
 	position: fixed;
+	cursor: pointer;
 }
 
 #save {
@@ -316,8 +318,6 @@ footer {
 
 #save img, #reset img {
 	opacity: 0.2;
-  	-webkit-transition: opacity 0.2s ease-in-out;
-  	transition: opacity 0.2s ease-in-out;	
 }
 
 #save img {
@@ -331,16 +331,10 @@ footer {
 
 #reset img {
 	width: 24px;
-	  -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
+	  -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
     -webkit-transition-property: -webkit-transform;
     transition-property: transform;
-}
-
-#save img:hover, #reset img:hover {
-	opacity: 0.8;
-  	-webkit-transition: opacity 0.3s ease-in-out;
-  	transition: opacity 0.3s ease-in-out;
 }
 
 
