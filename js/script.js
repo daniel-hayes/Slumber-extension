@@ -323,6 +323,7 @@ load(); // load content
 
     	setTimeout(function() {
 			location.reload();
+			chrome.storage.sync.clear();
     	}, 1300);
 /*         YOU WANT TO USE STROAGEAREA.CLEAR(FUNCTION CALLBACK) TO CLEAR SYNC DATA AND RETRUN TO DEFAULT...*/
 	});
@@ -350,12 +351,21 @@ load(); // load content
 	}
 	*/
 
-			var hour = $('#hour').attr("data-time");
-	  	var min = $('#minute').attr("data-time");
-		var timeOfDay = $('#time').attr("data-time");
-		console.log(hour);
-		console.log(min);
-		console.log(timeOfDay); 
+	function restore_options() {
+  		console.log(hour);		
+	  	chrome.storage.sync.get({
+	  		setHour: "Hours",	
+	  		setMin: "Minutes",
+	  		setTime: "AM or PM"	
+	  	}, function(items) {
+    		$('#hour').attr("data-time", items.setHour).html(items.setHour);
+    		$('#minute').attr("data-time", items.setMin).html(items.setMin);
+    		$('#time').attr("data-time", items.setTime).html(items.setTime);
+	  	  	console.log(items);
+
+	  	});
+	  	
+	}
 
 	// Saves options
 	function save_options() {
@@ -363,49 +373,20 @@ load(); // load content
 		var hour = $('#hour').attr("data-time");
 	  	var min = $('#minute').attr("data-time");
 		var timeOfDay = $('#time').attr("data-time"); 
-		console.log(hour);
-		console.log(min);
-		console.log(timeOfDay); 
+
 	  	chrome.storage.sync.set({
 	  		// set the new values
 	  		setHour: hour,
 	    	setMin: min,
 	    	setTime: timeOfDay
 	  	}, function() {
-	   			var status = $("#status");
-	    		status.html("Options Saved ;)");
+	   			var status = $("#update");
+	    		status.fadeIn(1000).html("<h3>time saved</h3>");
 	    		setTimeout(function() {
 	      			status.html("");
-	    		}, 1500);
+	    		}, 112000);
 	 		}); // end status update
 	} // save options
-
-	function restore_options() {
-  		console.log(hour);		
-	  	chrome.storage.sync.get({
-	  		hey: "hi"	
-	  	}, function(items) {
-    		document.getElementById('minute').value;
-	  	});
-	  	
-	  	console.log(hour);
-	}
-
-/*
-
-console.log(hour);		
-	  	chrome.storage.sync.get({
-  			// list of default object values
-    		setHour: "Hours",
-    		setMin: "Minutes",
-    		setTime: "AM or PM"
-  		}, function(items) {
-    		document.getElementById('hour').value = items.;
-    		document.getElementById('minute').value = items.setMin;
-    		document.getElementById('time').value = items.setTime;
-    	console.log(items);
- 	 });
-*/
 
 	restore_options(); // call restore
 

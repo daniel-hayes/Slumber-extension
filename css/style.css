@@ -337,6 +337,16 @@ footer {
     transition-property: transform;
 }
 
+#update {
+	position: absolute;
+	bottom: 12px;
+	right: 125px;
+}
+
+#update h3 {
+	font-style: italic;
+	font-weight: 300;	
+}
 
 /* options page */
 
