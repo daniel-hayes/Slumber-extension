@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	$("#everything").fadeIn(900);
 
 	$('#everything').css({
 		left: ($(window).width() - $('#everything').width())/2,
@@ -266,12 +267,14 @@ load(); // load content
 			opacity: '1'
 		}, 1100);
 
-		$('#save').html("<button>save</button>");
-
 		$("#instant h1:nth-child(1)").append("<span class='pop'>9 hours of sleep</span>");
 		$("#instant h1:nth-child(2)").append("<span class='pop'>7.5 hours of sleep</span>");
 		$("#instant h1:nth-child(3)").append("<span class='pop'>6 hours of sleep</span>");
 		$("#instant h1:nth-child(4)").append("<span class='pop'>4.5 hours of sleep</span>");
+
+		$('footer').show().animate({
+			opacity: "1"
+		}, 600);
 
 		// adjust screen
 		var allThings = $("#everything");
@@ -295,8 +298,35 @@ load(); // load content
 		}
 
 	}); // end click function 
-	
 
+	var icons = $('#reset, #save');
+
+	icons.mouseover(function() {
+		$(this).find("img").stop(true, false).animate({
+			opacity: 1
+		}, 200);
+	});
+	icons.mouseout(function() {
+		$(this).find("img").stop(true, false).animate({
+			opacity: 0.2
+		}, 200);
+	});
+	
+	$('#reset').click(function() {
+        $(this).find("img").css({
+        	"-webkit-transform": "rotate(-180deg)"
+        });
+
+    	setTimeout(function() {
+			$("body").fadeOut(900);
+    	}, 250);
+
+    	setTimeout(function() {
+			location.reload();
+    	}, 1300);
+/*         YOU WANT TO USE STROAGEAREA.CLEAR(FUNCTION CALLBACK) TO CLEAR SYNC DATA AND RETRUN TO DEFAULT...*/
+	});
+		
 		
 	// resize the div based on window size
 	$(window).resize(function(){
@@ -305,7 +335,88 @@ load(); // load content
 			top: ($(window).height() - $('#everything').height())/2
 		});
 	});
-	
+
+
+	/* example 
+
+	// add zero to minutes input
+	if($("#minute").attr("data-time") < 10) {
+		if($('#minute').attr("data-time") == 0) {
+			$("#minute").html("00");
+		}
+		else if($("#minute").attr("data-time") == 5) {
+			$("#minute").html("05");
+		}
+	}
+	*/
+
+			var hour = $('#hour').attr("data-time");
+	  	var min = $('#minute').attr("data-time");
+		var timeOfDay = $('#time').attr("data-time");
+		console.log(hour);
+		console.log(min);
+		console.log(timeOfDay); 
+
+	// Saves options
+	function save_options() {
+
+		var hour = $('#hour').attr("data-time");
+	  	var min = $('#minute').attr("data-time");
+		var timeOfDay = $('#time').attr("data-time"); 
+		console.log(hour);
+		console.log(min);
+		console.log(timeOfDay); 
+	  	chrome.storage.sync.set({
+	  		// set the new values
+	  		setHour: hour,
+	    	setMin: min,
+	    	setTime: timeOfDay
+	  	}, function() {
+	   			var status = $("#status");
+	    		status.html("Options Saved ;)");
+	    		setTimeout(function() {
+	      			status.html("");
+	    		}, 1500);
+	 		}); // end status update
+	} // save options
+
+	function restore_options() {
+  		console.log(hour);		
+	  	chrome.storage.sync.get({
+	  		hey: "hi"	
+	  	}, function(items) {
+    		document.getElementById('minute').value;
+	  	});
+	  	
+	  	console.log(hour);
+	}
+
+/*
+
+console.log(hour);		
+	  	chrome.storage.sync.get({
+  			// list of default object values
+    		setHour: "Hours",
+    		setMin: "Minutes",
+    		setTime: "AM or PM"
+  		}, function(items) {
+    		document.getElementById('hour').value = items.;
+    		document.getElementById('minute').value = items.setMin;
+    		document.getElementById('time').value = items.setTime;
+    	console.log(items);
+ 	 });
+*/
+
+	restore_options(); // call restore
+
+	$('#save').on('click', save_options); // call save options
+
+
+
+
+
+
+
 	
 
 
