@@ -383,12 +383,12 @@ load(); // load content
 	function restore_options() {
   		console.log(hour);		
 	  	chrome.storage.sync.get({
-	  		setHour: "SHIT"
+	  		hey: "hi"	
 	  	}, function(items) {
-	  		$("#hour").attr("data-time") = items;
-	  		$("#minute").attr("data-time", 4).html("hi");
-	  		$("#time").attr("data-time", 4).html("hi");
+    		document.getElementById('minute').value;
 	  	});
+	  	
+	  	console.log(hour);
 	}
 
 /*
