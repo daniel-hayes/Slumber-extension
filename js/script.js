@@ -34,17 +34,6 @@ $(document).ready(function() {
 	     
 	     
 	    $("#theTime").html("<h1>" + currentTimeString + "</h1>");
-
-		/*var mainHours = currentTime.getHours();
-		
-		console.log(mainHours);
-		if(mainHours >= 18 || mainHours <= 6) {
-			$("body").addClass("night");
-			$("body").removeClass("day");
-		} else {
-			$("body").addClass("day");
-			$("body").removeClass("night");
-		} */
 	}
 
 
@@ -83,7 +72,7 @@ $(document).ready(function() {
 	   	
 		   	for(var minute = 0; minute <= 55; minute += 5) {
 		    	if (minute < 10) {
-		    		inputTwo = inputTwo + "<li data-time='" + minute + "'>" + "<p>" + "0" + minute + "</p>" + "</li>"
+		    		inputTwo = inputTwo + "<li data-time='0" + minute +  "'>" + "<p>" + "0" + minute + "</p>" + "</li>"
 		    	} else {
 					inputTwo = inputTwo + "<li data-time='" + minute + "'>" + "<p>" + minute + "</p>" + "</li>";
 		    	}
@@ -141,16 +130,6 @@ load(); // load content
 			$("#minute").html("05");
 		}
 	}
-
-			/* fix
-
-			if(dataTime == $("h3").attr("data-time"))  {
-				$(this).css("background", "blue");
-				console.log(dataTime);
-			} else {
-				$(this).css("background", "red");
-			}
-			*/
 	});
 	
 
@@ -325,7 +304,6 @@ load(); // load content
 			location.reload();
 			chrome.storage.sync.clear();
     	}, 1300);
-/*         YOU WANT TO USE STROAGEAREA.CLEAR(FUNCTION CALLBACK) TO CLEAR SYNC DATA AND RETRUN TO DEFAULT...*/
 	});
 		
 		
@@ -337,35 +315,18 @@ load(); // load content
 		});
 	});
 
-
-	/* example 
-
-	// add zero to minutes input
-	if($("#minute").attr("data-time") < 10) {
-		if($('#minute').attr("data-time") == 0) {
-			$("#minute").html("00");
-		}
-		else if($("#minute").attr("data-time") == 5) {
-			$("#minute").html("05");
-		}
-	}
-	*/
-
 	function restore_options() {
-  		console.log(hour);		
 	  	chrome.storage.sync.get({
 	  		setHour: "Hours",	
 	  		setMin: "Minutes",
-	  		setTime: "AM or PM"	
+	  		setTime: "AM or PM"
 	  	}, function(items) {
     		$('#hour').attr("data-time", items.setHour).html(items.setHour);
     		$('#minute').attr("data-time", items.setMin).html(items.setMin);
-    		$('#time').attr("data-time", items.setTime).html(items.setTime);
-	  	  	console.log(items);
-
+    		$('#time').attr("data-time", items.setTime).html(items.setTime);	
 	  	});
 	  	
-	}
+	} 
 
 	// Saves options
 	function save_options() {
@@ -373,33 +334,23 @@ load(); // load content
 		var hour = $('#hour').attr("data-time");
 	  	var min = $('#minute').attr("data-time");
 		var timeOfDay = $('#time').attr("data-time"); 
-
 	  	chrome.storage.sync.set({
 	  		// set the new values
 	  		setHour: hour,
 	    	setMin: min,
 	    	setTime: timeOfDay
-	  	}, function() {
+	  		}, function() {
 	   			var status = $("#update");
-	    		status.fadeIn(1000).html("<h3>time saved</h3>");
+	    		status.html("<h3>time saved</h3>");
 	    		setTimeout(function() {
 	      			status.html("");
-	    		}, 112000);
+	    		}, 1500);
 	 		}); // end status update
 	} // save options
 
 	restore_options(); // call restore
-
-	$('#save').on('click', save_options); // call save options
-
-
-
-
-
-
-
 	
-
+	$('#save').on('click', save_options); // call save options
 
 }); // end document ready
 
