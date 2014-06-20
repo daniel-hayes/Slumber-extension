@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("#everything").fadeIn(900);
+	$("#everything").fadeIn(1000);
 
 	$('#everything').css({
 		left: ($(window).width() - $('#everything').width())/2,

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Slumber",
-  "description": "A sleep time calculator inspired by sleepyti.me. Set the clock to the time you need to wake up, and Slumber will calculate the recommended times to go to sleep.",
+  "description": "Slumber transforms your new tab into a beautiful sleep time calculator.",
   "version": "1.0",
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": ["storage"],
