@@ -5,6 +5,7 @@
   "description": "Slumber transforms your new tab into a beautiful sleep time calculator.",
   "version": "1.0",
   "icons": {
+	  "16": "16.png",
 	  "48": "48.png",
 	  "128": "128.png"
   },
