@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Slumber",
-  "author": "r_d",
+  "author": "r_dhayes",
   "description": "Slumber transforms your new tab into a beautiful sleep time calculator.",
-  "version": "1.0",
+  "version": "1.0.1",
   "icons": {
 	  "16": "16.png",
 	  "48": "48.png",
